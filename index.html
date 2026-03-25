@@ -6,7 +6,21 @@
     <title>tomochi - Coming Soon</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <noscript>
+        <div style="background-color: black; color: white; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: sans-serif; margin: 0; padding: 1rem; text-align: center;">
+          <h1 style="font-size: 2rem; font-weight: bold;">Please enable JavaScript to view this site.</h1>
+        </div>
+      </noscript>
+      <!-- Static Fallback Content -->
+      <main style="background-color: black; color: white; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: sans-serif; margin: 0; padding: 1rem; text-align: center;">
+        <div style="max-width: 1200px; width: 100%;">
+          <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.4em; opacity: 0.5; margin-bottom: 1rem;">Tomochi</p>
+          <h1 style="font-size: 4rem; font-weight: bold; line-height: 0.9; letter-spacing: -0.05em; text-transform: uppercase; font-style: italic; margin: 0;">its<br>coming...</h1>
+          <div style="height: 4px; background-color: white; width: 128px; margin: 2rem auto 0;"></div>
+        </div>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

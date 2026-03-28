@@ -1,27 +1,646 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>tomochi - Coming Soon</title>
-  </head>
-  <body>
-    <div id="root">
-      <noscript>
-        <div style="background-color: black; color: white; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: sans-serif; margin: 0; padding: 1rem; text-align: center;">
-          <h1 style="font-size: 2rem; font-weight: bold;">Please enable JavaScript to view this site.</h1>
-        </div>
-      </noscript>
-      <!-- Static Fallback Content -->
-      <main style="background-color: black; color: white; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: sans-serif; margin: 0; padding: 1rem; text-align: center;">
-        <div style="max-width: 1200px; width: 100%;">
-          <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.4em; opacity: 0.5; margin-bottom: 1rem;">Tomochi</p>
-          <h1 style="font-size: 4rem; font-weight: bold; line-height: 0.9; letter-spacing: -0.05em; text-transform: uppercase; font-style: italic; margin: 0;">its<br>coming...</h1>
-          <div style="height: 4px; background-color: white; width: 128px; margin: 2rem auto 0;"></div>
-        </div>
-      </main>
-    </div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tomochi — A Better Friend Than a Screen</title>
+  <meta name="description" content="Tomochi creates AI companions for kids that replace screen addiction with real-world interaction, emotional growth, and meaningful play." />
+  <meta property="og:title" content="Tomochi — A Better Friend Than a Screen" />
+  <meta property="og:description" content="AI-powered companions that bring kids back to the real world." />
+  <meta property="og:url" content="https://tomochi-chan.com" />
+  <link rel="canonical" href="https://tomochi-chan.com" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+</head>
+<body>
 
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">Tomochi</a>
+    <ul class="nav-links">
+      <li><a href="#problem">The Problem</a></li>
+      <li><a href="#solution">Solution</a></li>
+      <li><a href="#world">The World</a></li>
+      <li><a href="#products">Products</a></li>
+    </ul>
+    <a href="#cta" class="nav-cta">Join the Movement</a>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-headline reveal">
+        A better friend<br /><em>than a screen.</em>
+      </h1>
+      <p class="hero-sub reveal">
+        AI-powered companions that bring kids back to the real world —
+        through emotion, imagination, and play.
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#world" class="btn btn-primary">Enter the Tomochi World</a>
+        <a href="#solution" class="btn btn-ghost">See How It Works</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal-up">
+      <div class="hero-card-stack">
+        <div class="hero-card card-back">
+          <img src="https://drive.google.com/uc?export=view&id=1iQwTkZ_u_yDanU9uEyOLm_f1Yx8YkBxM" alt="Tomochi Plush Set" loading="eager" />
+        </div>
+        <div class="hero-card card-front">
+          <img src="https://drive.google.com/uc?export=view&id=1useL4Gs_tnM3WEgicNPh3_ltNvnRS36A" alt="Tomochi Plush" loading="eager" />
+          <div class="card-glow"></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll to explore</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem" id="problem">
+    <div class="container">
+      <div class="problem-inner">
+        <div class="problem-text reveal">
+          <div class="section-tag">The Problem</div>
+          <h2 class="section-headline">
+            Our kids are growing up<br /><em>inside a screen.</em>
+          </h2>
+          <p class="problem-body">
+            Scroll. Autoplay. Repeat. The feeds are designed to hold attention —
+            and they're working. Kids are spending more time passively consuming
+            content than ever before, and less time exploring, playing, and
+            actually feeling things.
+          </p>
+          <p class="problem-body">
+            This isn't about banning screens. It's about giving kids something
+            better to reach for.
+          </p>
+          <p class="problem-quote">
+            "This wasn't the childhood we imagined for them."
+          </p>
+        </div>
+        <div class="problem-visual reveal-up">
+          <img src="https://drive.google.com/uc?export=view&id=1nlHVMYlyFgGcKuWWRuBdf9hWZuP0zG-l" alt="Tomochi companions" class="problem-img" />
+          <div class="problem-img-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="solution" id="solution">
+    <div class="solution-bg">
+      <div class="orb orb-4"></div>
+      <div class="orb orb-5"></div>
+    </div>
+    <div class="container">
+      <div class="section-center reveal">
+        <div class="section-tag light">The Solution</div>
+        <h2 class="section-headline light">
+          Meet Tomochi —<br />the companion <em>they deserve.</em>
+        </h2>
+        <p class="solution-intro">
+          Tomochi creates AI-powered plush companions that live, breathe, and
+          grow alongside your child. Emotional intelligence built in. Real
+          connection, not just content.
+        </p>
+      </div>
+      <div class="solution-pillars">
+        <div class="pillar reveal">
+          <div class="pillar-icon">🫂</div>
+          <h3>Emotional Bond</h3>
+          <p>Tomochi companions remember, respond, and grow with your child — forming real connections that teach empathy and self-expression.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-icon">🌍</div>
+          <h3>Real-World Play</h3>
+          <p>From outdoor adventures to imaginative storytelling, Tomochi pulls kids away from the feed and into their own story.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-icon">🧠</div>
+          <h3>AI That Cares</h3>
+          <p>Smart technology that adapts to each child's personality and mood — making every interaction feel meaningful, not mechanical.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-icon">✨</div>
+          <h3>Imagination First</h3>
+          <p>Magical creature worlds, collectible companions, and a universe that rewards curiosity over consumption.</p>
+        </div>
+      </div>
+      <div class="solution-devices reveal-up">
+        <div class="device-showcase">
+          <img src="https://drive.google.com/uc?export=view&id=1hbr413hQOr1U0NhOk2zt4t6CyiLTZD82" alt="Tomochi Device Concept" class="device-img" />
+          <div class="device-label">
+            <span class="device-tag">Smart Device</span>
+            <span class="device-name">The Hex Home</span>
+          </div>
+        </div>
+        <div class="device-showcase">
+          <img src="https://drive.google.com/uc?export=view&id=1199ASMHZhjW6w2TKDQjV13UF3AY2VYy8" alt="Device Cover" class="device-img" />
+          <div class="device-label">
+            <span class="device-tag">Companion Hub</span>
+            <span class="device-name">Device Cover</span>
+          </div>
+        </div>
+        <div class="device-showcase">
+          <img src="https://drive.google.com/uc?export=view&id=1p8e08zQQz0fJGXOUc3Ahtx4NVEFBs6o_" alt="Hexions Dollhouse" class="device-img" />
+          <div class="device-label">
+            <span class="device-tag">Hexions</span>
+            <span class="device-name">Dollhouse World</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE WORLD -->
+  <section class="world" id="world">
+    <div class="container">
+      <div class="section-center reveal">
+        <div class="section-tag">The Tomochi World</div>
+        <h2 class="section-headline">
+          Creatures that live in<br /><em>magical jelly worlds.</em>
+        </h2>
+        <p class="world-intro">
+          Each Tomochi companion inhabits its own luminous world. Collect them.
+          Connect them. Make them yours.
+        </p>
+      </div>
+      <div class="world-grid">
+        <div class="world-card world-card-large reveal-up">
+          <img src="https://drive.google.com/uc?export=view&id=1nlHVMYlyFgGcKuWWRuBdf9hWZuP0zG-l" alt="Plush Set World" />
+          <div class="world-card-overlay">
+            <h3>A World of Their Own</h3>
+            <p>Every creature has a story, a home, a universe to explore.</p>
+          </div>
+        </div>
+        <div class="world-card reveal-up">
+          <img src="https://drive.google.com/uc?export=view&id=18lINtnMx7y_RDpDhq0En9X0H5DFoHm6d" alt="Plush Set 3" />
+          <div class="world-card-overlay">
+            <h3>Collectible Companions</h3>
+            <p>Each one unique. Each one alive.</p>
+          </div>
+        </div>
+        <div class="world-card reveal-up">
+          <img src="https://drive.google.com/uc?export=view&id=1ZlU3OuE0GKVWJPe7cV1m9v_qE2Jb_94d" alt="Figurines Collectables" />
+          <div class="world-card-overlay">
+            <h3>Figurine Universe</h3>
+            <p>Miniature worlds, maximum wonder.</p>
+          </div>
+        </div>
+        <div class="world-card reveal-up">
+          <img src="https://drive.google.com/uc?export=view&id=1x1DIfaF8K1SQJo0_8jS_uYxv13JIDkca" alt="Health Watch" />
+          <div class="world-card-overlay">
+            <h3>Wellness Companion</h3>
+            <p>A friend that cares about how you feel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-center reveal">
+        <div class="section-tag">The Collection</div>
+        <h2 class="section-headline">
+          Everything a child<br /><em>actually wants.</em>
+        </h2>
+      </div>
+
+      <div class="product-tabs reveal">
+        <button class="tab-btn active" data-tab="plush">Plush Companions</button>
+        <button class="tab-btn" data-tab="device">Smart Device</button>
+        <button class="tab-btn" data-tab="apparel">Apparel</button>
+        <button class="tab-btn" data-tab="packaging">Packaging</button>
+        <button class="tab-btn" data-tab="lifestyle">Lifestyle</button>
+      </div>
+
+      <!-- Plush -->
+      <div class="product-grid active" id="tab-plush">
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1useL4Gs_tnM3WEgicNPh3_ltNvnRS36A" alt="Plush Simple" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Plush Companion</span>
+            <h4>Classic Tomochi</h4>
+            <p>The original companion. Soft, smart, and full of heart.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1iQwTkZ_u_yDanU9uEyOLm_f1Yx8YkBxM" alt="Plush Set 1" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Plush Set</span>
+            <h4>Companion Duo</h4>
+            <p>Double the magic. Double the friendship.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1nlHVMYlyFgGcKuWWRuBdf9hWZuP0zG-l" alt="Plush Set 2" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Plush Set</span>
+            <h4>Squad Edition</h4>
+            <p>A whole world in your arms.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=18lINtnMx7y_RDpDhq0En9X0H5DFoHm6d" alt="Plush Set 3" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Plush Set</span>
+            <h4>Collector's Set</h4>
+            <p>Rare creatures for the dedicated explorer.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Device -->
+      <div class="product-grid" id="tab-device">
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1hbr413hQOr1U0NhOk2zt4t6CyiLTZD82" alt="Device Concept" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Smart Device</span>
+            <h4>Tomochi Hub</h4>
+            <p>The brain behind the magic. AI companion technology in a beautiful home.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1199ASMHZhjW6w2TKDQjV13UF3AY2VYy8" alt="Device Cover" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Accessory</span>
+            <h4>Device Cover</h4>
+            <p>Protect and personalize your Tomochi home.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1p8e08zQQz0fJGXOUc3Ahtx4NVEFBs6o_" alt="Hexions Dollhouse" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Hexions</span>
+            <h4>Dollhouse World</h4>
+            <p>A complete magical ecosystem in one beautiful structure.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1x1DIfaF8K1SQJo0_8jS_uYxv13JIDkca" alt="Health Watch" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Wearable</span>
+            <h4>Wellness Watch</h4>
+            <p>Your Tomochi on your wrist. Health meets companionship.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1ZlU3OuE0GKVWJPe7cV1m9v_qE2Jb_94d" alt="Figurines" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Collectibles</span>
+            <h4>Figurine Series</h4>
+            <p>Miniature Tomochi universe. Collect every creature.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Apparel -->
+      <div class="product-grid" id="tab-apparel">
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1qGCjQapsp4u_67Exw2WGEA8i016IV1NQ" alt="Baby Hoodie" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Apparel</span>
+            <h4>Baby Hoodie</h4>
+            <p>Soft as a hug. Warm as a friend.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1zEHjXiS9yp0GA9PxOZivKZ6c5LjEctuD" alt="Kid Hoodie" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Apparel</span>
+            <h4>Kid Hoodie</h4>
+            <p>Adventure-ready. Tomochi-approved.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=13596x6KYsyqWGCLwHJoCYO41cPdLg43O" alt="Embroidered Hoodie 1" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Apparel</span>
+            <h4>Embroidered Hoodie I</h4>
+            <p>Carry your companion wherever you go.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1bl-w0kYfeRcWGMyDeNUGOxpOuGUu42gb" alt="Embroidered Hoodie 2" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Apparel</span>
+            <h4>Embroidered Hoodie II</h4>
+            <p>Bold creature. Soft soul.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1y--CTjGML4z9YdgMHlOflY-JByWQSjfw" alt="Embroidered Tee" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Apparel</span>
+            <h4>Embroidered Tee</h4>
+            <p>The everyday Tomochi statement.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1bTZIe-8PAAK7q57fNFSaMPYyrd2IoWC-" alt="Mascot Hoodie" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Apparel</span>
+            <h4>Mascot Hoodie</h4>
+            <p>Become the creature.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1geausk10slbQrsy4JHQP64v953_8H_rz" alt="Mascot Cap" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Accessories</span>
+            <h4>Mascot Cap</h4>
+            <p>Top it off with Tomochi style.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Packaging -->
+      <div class="product-grid" id="tab-packaging">
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1mL3WCbcZw3oBr3m-5j6IwrxJ8jT2HUrZ" alt="Package 1" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Packaging</span>
+            <h4>Gift Box</h4>
+            <p>Opening it is the first adventure.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1zl-Yv9XL-ssQYwi6xE1n14AQkMthtJTK" alt="Package 13" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Packaging</span>
+            <h4>Collector Box</h4>
+            <p>Designed to be kept forever.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1TAOt-ewPcAi2fJXhJKvrEPC-D74Xlhv2" alt="Package 14" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Packaging</span>
+            <h4>Special Edition</h4>
+            <p>Limited drops. Infinite memories.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1LPA51BGBw6SkXmHng0bnCfNzARXy4yb6" alt="Package 32" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Packaging</span>
+            <h4>Retail Box</h4>
+            <p>Shelf presence that stops you in your tracks.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lifestyle -->
+      <div class="product-grid" id="tab-lifestyle">
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=15Gyz3B2NZxzElPONbvBnArHXx6rZdf4z" alt="Hoodie Blanket 1" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Home</span>
+            <h4>Hoodie Blanket I</h4>
+            <p>Comfort redefined. Warmth with personality.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1fypyfbIEtvYzJnD-wbMTE_H21fvfkX4B" alt="Hoodie Blanket 2" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Home</span>
+            <h4>Hoodie Blanket II</h4>
+            <p>The ultimate cozy companion.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1UKF2BVdEtP7ugSvy6Tr3JoINVv-lr5xS" alt="Hoodie Blanket 3" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Home</span>
+            <h4>Hoodie Blanket III</h4>
+            <p>Story time just got softer.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1cfEzLoabw7Qyd1g9c5b27-X9kb8ezuIQ" alt="Hoodie Blanket 4" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Home</span>
+            <h4>Hoodie Blanket IV</h4>
+            <p>Screen-off, snuggle-on.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1WjogF6iJc21eCU0nFrVZAvv4k30gmJSm" alt="Carpet Design 1" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Home Decor</span>
+            <h4>Tomochi Carpet I</h4>
+            <p>Play starts here. Literally.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1v4wa33Y2wVw-buyi6_YXadUVWAcsDsgz" alt="Carpet Design 2" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Home Decor</span>
+            <h4>Tomochi Carpet II</h4>
+            <p>A world on your floor.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1Ar9OkWtrE9RIR_PGH0ZQyQd6guHkox_L" alt="Pouf" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Furniture</span>
+            <h4>Tomochi Pouf</h4>
+            <p>Sit in the world of Tomochi.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1o5NPMaiKGVhCP5sOsb8I4riwi0pJbNA1" alt="Keychains 1" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Accessories</span>
+            <h4>Keychain Set I</h4>
+            <p>Carry your creature everywhere.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1LxHDQf9OF1IIVSvyNjtFs-wlylc-pBfX" alt="Keychains 2" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Accessories</span>
+            <h4>Keychain Set II</h4>
+            <p>New friends, every drop.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1vpD5szDTP5TReqdXFrqJvVx-qb0H66XK" alt="Pet Costume 1" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Pet Accessories</span>
+            <h4>Pet Costume I</h4>
+            <p>Even your pets join the Tomochi world.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1A1uYxzmbol0cyEnt3L9Jgr3x994XN7_e" alt="Pet Costume 2" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Pet Accessories</span>
+            <h4>Pet Costume II</h4>
+            <p>Full family. Full adventure.</p>
+          </div>
+        </div>
+        <div class="product-card reveal-up">
+          <div class="product-img-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1GcpH_7FE2sgSK-XNHBECIEyPlGBc7sQ_" alt="Pet Costume 3" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Pet Accessories</span>
+            <h4>Pet Costume III</h4>
+            <p>Because everyone deserves a Tomochi.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VIDEO SECTION REMOVED — add Vimeo embed here when ready -->
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="cta">
+    <div class="cta-bg">
+      <div class="orb orb-7"></div>
+      <div class="orb orb-8"></div>
+    </div>
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div class="section-tag light">Join the Movement</div>
+        <h2 class="cta-headline">
+          It's time to put down<br />the screen and pick up<br /><em>something real.</em>
+        </h2>
+        <p class="cta-sub">
+          Be the first to know about drops, news, and what's coming next.
+        </p>
+        <div class="cta-form">
+          <input type="email" placeholder="Your email address" class="cta-input" />
+          <button class="btn btn-primary btn-large">Stay in the loop</button>
+        </div>
+        <p class="cta-footnote">
+          Questions? <a href="mailto:support.tomochi@gmail.com" class="cta-email-link">support.tomochi@gmail.com</a>
+        </p>
+        <div class="cta-social">
+          <a href="https://www.instagram.com/tomochi__chan/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.tiktok.com/@tomochi__chan" target="_blank" rel="noopener" class="social-link" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            TikTok
+          </a>
+          <a href="https://www.youtube.com/@Tomochi-chan" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.8"/><path d="M10 9l5 3-5 3V9z" fill="currentColor"/></svg>
+            YouTube
+          </a>
+          <a href="https://x.com/tomochi__chan" target="_blank" rel="noopener" class="social-link" aria-label="X / Twitter">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            X
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="footer-logo">Tomochi</span>
+          <p>A better friend than a screen.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#problem">The Problem</a>
+          <a href="#solution">Solution</a>
+          <a href="#world">The World</a>
+          <a href="#products">Products</a>
+          <a href="mailto:support.tomochi@gmail.com">Contact</a>
+        </div>
+        <div class="footer-copy">
+          <p>© 2025 Tomochi.</p>
+          <p>tomochi-chan.com</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

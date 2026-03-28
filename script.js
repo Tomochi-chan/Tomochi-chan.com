@@ -43,33 +43,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealEls.forEach(el => revealObserver.observe(el));
 
-  // ─── PRODUCT TABS ─────────────────────────────────
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const tabGrids = document.querySelectorAll('.product-grid');
+  // ─── CATEGORY NAV ACTIVE ON SCROLL ───────────────
+  const catNavLinks = document.querySelectorAll('.cat-nav-link');
+  const catSections = document.querySelectorAll('.pcat[id]');
 
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = btn.dataset.tab;
+  const catObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        catNavLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
 
-      tabBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  catSections.forEach(sec => catObserver.observe(sec));
 
-      tabGrids.forEach(grid => {
-        grid.classList.remove('active');
-        if (grid.id === `tab-${target}`) {
-          grid.classList.add('active');
-          // Re-trigger reveal for newly visible cards
-          grid.querySelectorAll('.reveal-up').forEach(el => {
-            el.classList.remove('visible');
-            setTimeout(() => revealObserver.observe(el), 10);
-          });
-        }
-      });
+  // Smooth scroll for cat nav links (offset for sticky nav + cat nav)
+  catNavLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const id = link.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if (!target) return;
+      const offset = nav.offsetHeight + 60;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 
   // ─── SMOOTH ANCHOR SCROLL ─────────────────────────
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  document.querySelectorAll('a[href^="#"]:not(.cat-nav-link)').forEach(anchor => {
     anchor.addEventListener('click', e => {
       const id = anchor.getAttribute('href').slice(1);
       if (!id) return;

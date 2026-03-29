@@ -1395,3 +1395,425 @@ ul { list-style: none; }
 @media (pointer: coarse) {
   #cursor-blob, #cursor-dot { display: none; }
 }
+
+/* =========================================
+   SECTION-SPECIFIC EFFECTS
+   ========================================= */
+
+/* ── HERO: shimmer sweep on gradient headline ── */
+.hero-headline em {
+  background: linear-gradient(90deg,
+    #ff4d8d 0%, #b96eff 20%, #38d9f5 40%,
+    #ff4d8d 60%, #b96eff 80%, #38d9f5 100%) !important;
+  background-size: 250% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  animation: shimmerSweep 4s linear infinite !important;
+}
+@keyframes shimmerSweep {
+  0%   { background-position: 0% center; }
+  100% { background-position: 250% center; }
+}
+
+/* ── HERO: floating emoji decorations ────── */
+.hero-deco {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  font-size: 1.8rem;
+  pointer-events: none;
+  user-select: none;
+  animation: heroDeco var(--dur, 6s) ease-in-out infinite var(--delay, 0s);
+  z-index: 2;
+  filter: drop-shadow(0 2px 8px rgba(255,77,141,0.3));
+}
+@keyframes heroDeco {
+  0%, 100% { transform: translateY(0)   rotate(0deg)  scale(1); }
+  33%       { transform: translateY(-20px) rotate(12deg) scale(1.1); }
+  66%       { transform: translateY(-8px)  rotate(-8deg) scale(0.95); }
+}
+
+/* ── PROBLEM: glitch on "inside a screen" ─── */
+.glitch-em {
+  position: relative;
+  display: inline;
+  animation: glitchFlick 6s ease-in-out infinite !important;
+}
+@keyframes glitchFlick {
+  0%, 85%, 100% {
+    transform: skewX(0deg) translateX(0);
+    filter: none;
+  }
+  86% {
+    transform: skewX(-5deg) translateX(5px);
+    filter: hue-rotate(80deg) brightness(1.4);
+  }
+  87% {
+    transform: skewX(0deg) translateX(0);
+    filter: none;
+  }
+  89% {
+    transform: skewX(4deg) translateX(-4px);
+    filter: hue-rotate(-70deg) brightness(1.3) saturate(2);
+  }
+  90% {
+    transform: skewX(0);
+    filter: none;
+  }
+  92% {
+    transform: translateX(4px) skewX(-2deg);
+    filter: hue-rotate(160deg);
+    opacity: 0.85;
+  }
+  93% {
+    transform: skewX(0);
+    filter: none;
+    opacity: 1;
+  }
+}
+
+/* ── SOLUTION: moving nebula dot grid ────── */
+.solution-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(185,110,255,0.14) 1.5px, transparent 1.5px),
+    radial-gradient(rgba(56,217,245,0.09) 1.5px, transparent 1.5px);
+  background-size: 44px 44px, 66px 66px;
+  background-position: 0 0, 22px 22px;
+  pointer-events: none;
+  animation: nebulaMove 18s linear infinite;
+  z-index: 0;
+}
+@keyframes nebulaMove {
+  from { background-position: 0 0, 22px 22px; }
+  to   { background-position: 44px 44px, 66px 66px; }
+}
+.solution .container { position: relative; z-index: 1; }
+
+/* ── SOLUTION: pillar icon breathe ──────── */
+.pillar-icon {
+  animation: iconBreathe 3s ease-in-out infinite !important;
+}
+.pillar:nth-child(1) .pillar-icon { animation-delay: 0.0s !important; }
+.pillar:nth-child(2) .pillar-icon { animation-delay: 0.6s !important; }
+.pillar:nth-child(3) .pillar-icon { animation-delay: 1.2s !important; }
+.pillar:nth-child(4) .pillar-icon { animation-delay: 1.8s !important; }
+.pillar:nth-child(5) .pillar-icon { animation-delay: 2.4s !important; }
+@keyframes iconBreathe {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 20px rgba(185,110,255,0.18) !important;
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 8px 36px rgba(255,77,141,0.3) !important;
+  }
+}
+
+/* ── DAY: time-coded card identities ────── */
+/* Morning — golden warm */
+.day-steps > *:nth-child(1) {
+  border-top: 4px solid #ffb347 !important;
+  background: linear-gradient(170deg, rgba(255,179,71,0.1) 0%, rgba(255,255,255,0.72) 100%) !important;
+  box-shadow: 0 4px 32px rgba(255,160,50,0.12) !important;
+}
+.day-steps > *:nth-child(1) .day-step-num { color: #d97706 !important; }
+.day-steps > *:nth-child(1) .day-step-icon { filter: drop-shadow(0 0 8px rgba(255,185,50,0.6)); }
+
+/* On the Way — sky blue */
+.day-steps > *:nth-child(3) {
+  border-top: 4px solid #38d9f5 !important;
+  background: linear-gradient(170deg, rgba(56,217,245,0.09) 0%, rgba(255,255,255,0.72) 100%) !important;
+  box-shadow: 0 4px 32px rgba(56,217,245,0.12) !important;
+}
+.day-steps > *:nth-child(3) .day-step-num { color: #0e97b5 !important; }
+.day-steps > *:nth-child(3) .day-step-icon { filter: drop-shadow(0 0 8px rgba(56,217,245,0.55)); }
+
+/* Homework — sunset orange */
+.day-steps > *:nth-child(5) {
+  border-top: 4px solid #ff8c42 !important;
+  background: linear-gradient(170deg, rgba(255,140,66,0.09) 0%, rgba(255,255,255,0.72) 100%) !important;
+  box-shadow: 0 4px 32px rgba(255,140,66,0.12) !important;
+}
+.day-steps > *:nth-child(5) .day-step-num { color: #c2550e !important; }
+.day-steps > *:nth-child(5) .day-step-icon { filter: drop-shadow(0 0 8px rgba(255,120,50,0.55)); }
+
+/* Bedtime — deep purple */
+.day-steps > *:nth-child(7) {
+  border-top: 4px solid #b96eff !important;
+  background: linear-gradient(170deg, rgba(185,110,255,0.11) 0%, rgba(255,242,255,0.75) 100%) !important;
+  box-shadow: 0 4px 32px rgba(185,110,255,0.15) !important;
+}
+.day-steps > *:nth-child(7) .day-step-num { color: #8b2ee8 !important; }
+.day-steps > *:nth-child(7) .day-step-icon { filter: drop-shadow(0 0 8px rgba(185,110,255,0.65)); }
+
+/* Step number heartbeat */
+.day-step-num {
+  display: block !important;
+  animation: stepHeartbeat 2.4s ease-in-out infinite !important;
+}
+@keyframes stepHeartbeat {
+  0%, 100% { transform: scale(1); }
+  8%  { transform: scale(1.25); }
+  16% { transform: scale(1); }
+  24% { transform: scale(1.12); }
+  32% { transform: scale(1); }
+}
+
+/* Step icon size boost */
+.day-step-icon { font-size: 48px !important; }
+
+/* ── WORLD: shimmer sweep on card hover ─── */
+.world-card { overflow: hidden; }
+.world-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    108deg,
+    transparent 38%,
+    rgba(255,255,255,0.22) 50%,
+    transparent 62%
+  );
+  background-size: 200% 100%;
+  background-position: -100% 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 4;
+  transition: none;
+}
+.world-card:hover::after {
+  transition: background-position 0.65s ease;
+  background-position: 200% 0;
+}
+
+/* World section floating creature decorations */
+.world-deco {
+  position: absolute;
+  left: var(--x, 0);
+  top: var(--y, 0);
+  pointer-events: none;
+  user-select: none;
+  animation: worldDecoFloat var(--dur, 6s) ease-in-out infinite var(--delay, 0s);
+  z-index: 2;
+  filter: drop-shadow(0 2px 8px rgba(185,110,255,0.35));
+}
+@keyframes worldDecoFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-14px) rotate(10deg); }
+}
+
+/* ── PRODUCTS: tab grid slide-in ────────── */
+@keyframes tabGridIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.product-grid.tab-enter {
+  animation: tabGridIn 0.42s var(--ease-bounce) forwards;
+}
+
+/* ── MARKET: stat glow on count ──────────── */
+.market-num {
+  transition: color 0.3s, text-shadow 0.3s !important;
+  display: block !important;
+}
+.market-stat.is-counting .market-num {
+  color: var(--pink) !important;
+  text-shadow: 0 0 32px rgba(255,77,141,0.45) !important;
+}
+
+/* ── FOOTER: rainbow logo glow on hover ─── */
+.footer-logo-img:hover {
+  animation: rainbowLogo 1.8s ease-in-out infinite !important;
+}
+@keyframes rainbowLogo {
+  0%   { filter: drop-shadow(0 0 10px #ff4d8d) drop-shadow(0 0 24px rgba(255,77,141,0.4)); }
+  33%  { filter: drop-shadow(0 0 10px #b96eff) drop-shadow(0 0 24px rgba(185,110,255,0.4)); }
+  66%  { filter: drop-shadow(0 0 10px #38d9f5) drop-shadow(0 0 24px rgba(56,217,245,0.4)); }
+  100% { filter: drop-shadow(0 0 10px #ff4d8d) drop-shadow(0 0 24px rgba(255,77,141,0.4)); }
+}
+
+/* ── NAV logo shimmer on hover ───────────── */
+.nav-logo-img:hover {
+  animation: rainbowLogo 1.8s ease-in-out infinite !important;
+}
+
+/* ── Section tag pop on reveal ───────────── */
+.section-tag.visible {
+  animation: tagPop 0.55s var(--ease-bounce) !important;
+}
+@keyframes tagPop {
+  0%   { transform: scale(0.6); opacity: 0; }
+  65%  { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ── Product card top accent per tab ────── */
+#tab-companions  .product-card { border-top: 3px solid rgba(255,77,141,0.4); }
+#tab-device      .product-card { border-top: 3px solid rgba(185,110,255,0.5); }
+#tab-collectibles .product-card { border-top: 3px solid rgba(56,217,245,0.5); }
+#tab-lifestyle   .product-card { border-top: 3px solid rgba(78,237,180,0.5); }
+#tab-home        .product-card { border-top: 3px solid rgba(255,179,71,0.5); }
+
+/* =========================================
+   FINAL POLISH
+   ========================================= */
+
+/* ── Scroll progress rainbow bar ────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #ff4d8d, #b96eff, #38d9f5, #4eedb4, #ff4d8d);
+  background-size: 200% 100%;
+  animation: progressShimmer 3s linear infinite;
+  z-index: 10001;
+  pointer-events: none;
+  border-radius: 0 3px 3px 0;
+  box-shadow: 0 0 8px rgba(255,77,141,0.55), 0 0 16px rgba(185,110,255,0.3);
+  transition: width 0.08s linear;
+}
+@keyframes progressShimmer {
+  0%   { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ── Mouse sparkle trail ─────────────────── */
+.m-spark {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9996;
+  transform: translate(-50%, -50%) scale(1);
+  animation: sparkFade var(--sd, 0.55s) ease forwards;
+}
+@keyframes sparkFade {
+  0%   { transform: translate(-50%,-50%) scale(1.2); opacity: 1; }
+  100% { transform: translate(var(--dx,0px), calc(-50% - 18px)) scale(0); opacity: 0; }
+}
+
+/* ── Button click ripple ─────────────────── */
+.btn, .tab-btn, .nav-cta { position: relative; overflow: hidden; }
+.btn-ripple {
+  position: absolute;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.55);
+  transform: translate(-50%,-50%) scale(0);
+  animation: rippleExpand 0.65s ease forwards;
+  pointer-events: none;
+  z-index: 10;
+}
+@keyframes rippleExpand {
+  to { transform: translate(-50%,-50%) scale(22); opacity: 0; }
+}
+
+/* ── Day connector: travelling star ─────── */
+.day-connector {
+  position: relative;
+  overflow: visible !important;
+  background: linear-gradient(to right,
+    rgba(255,179,71,0.4),
+    rgba(185,110,255,0.5),
+    rgba(56,217,245,0.4)) !important;
+  height: 3px !important;
+}
+.day-connector::after {
+  content: "★";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  color: #ffb347;
+  text-shadow: 0 0 8px rgba(255,179,71,0.9), 0 0 16px rgba(255,77,141,0.6);
+  animation: travelStar 2.4s ease-in-out infinite alternate;
+  white-space: nowrap;
+}
+@keyframes travelStar {
+  0%   { left: 0%; }
+  100% { left: calc(100% - 14px); }
+}
+
+/* ── CTA section decoration ──────────────── */
+.cta-deco {
+  position: absolute;
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+  font-size: 1.6rem;
+  pointer-events: none;
+  user-select: none;
+  animation: heroDeco var(--dur, 6s) ease-in-out infinite var(--delay, 0s);
+  z-index: 2;
+  filter: drop-shadow(0 2px 10px rgba(255,77,141,0.4));
+  opacity: 0.7;
+}
+
+/* ── CTA headline shimmer ────────────────── */
+.cta-headline em {
+  background: linear-gradient(90deg,
+    #ff4d8d 0%, #b96eff 25%, #38d9f5 50%,
+    #ff4d8d 75%, #b96eff 100%);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerSweep 3.5s linear infinite;
+}
+
+/* ── Pillar "tilt" reset on hover ────────── */
+.solution-pillars { perspective: 800px; }
+.pillar {
+  transform-style: preserve-3d;
+}
+
+/* ── Product card image shine ────────────── */
+.product-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    rgba(255,255,255,0.15) 50%,
+    transparent 65%
+  );
+  background-size: 200% 100%;
+  background-position: -100% 0;
+  pointer-events: none;
+  z-index: 2;
+  transition: none;
+  border-radius: inherit;
+}
+.product-card:hover .product-img-wrap::after {
+  transition: background-position 0.7s ease;
+  background-position: 200% 0;
+}
+
+/* ── Market stats: bigger + bolder on count ── */
+.market-num {
+  font-size: clamp(44px, 7vw, 72px) !important;
+  font-family: var(--font-serif) !important;
+  letter-spacing: -0.03em !important;
+}
+
+/* ── World section: deeper hover glow ───── */
+.world-card:hover {
+  transform: scale(1.02) !important;
+  box-shadow: 0 20px 60px rgba(185,110,255,0.35) !important;
+  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out) !important;
+}
+
+/* ── Responsive: turn off sparkle trail on touch ── */
+@media (pointer: coarse) {
+  .m-spark { display: none; }
+}

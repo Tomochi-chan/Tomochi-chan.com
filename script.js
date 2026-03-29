@@ -221,4 +221,128 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+  // ─── STAT COUNT-UP ────────────────────────────
+  (function() {
+    const stats = document.querySelectorAll('.market-num[data-target]');
+    if (!stats.length) return;
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        obs.unobserve(el);
+        const target  = parseFloat(el.dataset.target);
+        const suffix  = el.dataset.suffix  || '';
+        const prefix  = el.dataset.prefix  || '';
+        const decimal = parseInt(el.dataset.decimal || '0');
+        el.closest('.market-stat')?.classList.add('is-counting');
+        let startTs = null;
+        const dur = 1800;
+        function tick(ts) {
+          if (!startTs) startTs = ts;
+          const p = Math.min((ts - startTs) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          const val = target * eased;
+          el.innerHTML = prefix + val.toFixed(decimal) + suffix;
+          if (p < 1) {
+            requestAnimationFrame(tick);
+          } else {
+            el.innerHTML = prefix + target.toFixed(decimal) + suffix;
+            el.closest('.market-stat')?.classList.remove('is-counting');
+          }
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.6 });
+    stats.forEach(el => obs.observe(el));
+  })();
+
+  // ─── TAB ENTER ANIMATION ──────────────────────
+  (function() {
+    // Initial companions tab animation on load
+    const initial = document.getElementById('tab-companions');
+    if (initial) {
+      initial.classList.add('tab-enter');
+      initial.addEventListener('animationend', () => initial.classList.remove('tab-enter'), { once: true });
+    }
+
+    // Patch tab buttons to add slide-in on switch
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const grid = document.getElementById('tab-' + btn.dataset.tab);
+        if (!grid) return;
+        grid.classList.remove('tab-enter');
+        void grid.offsetWidth;
+        grid.classList.add('tab-enter');
+        grid.addEventListener('animationend', () => grid.classList.remove('tab-enter'), { once: true });
+      });
+    });
+  })();
+
+  // ─── SECTION TAG POP ANIMATION ────────────────
+  document.querySelectorAll('.section-tag').forEach(tag => {
+    tag.style.opacity = '0';
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.style.opacity = '';
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0.8 });
+    obs.observe(tag);
+  });
+
+
+  // ─── SCROLL PROGRESS BAR ──────────────────────
+  (function() {
+    const bar = document.getElementById('scroll-progress');
+    if (!bar) return;
+    function updateBar() {
+      const max = document.body.scrollHeight - window.innerHeight;
+      bar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+    }
+    window.addEventListener('scroll', updateBar, { passive: true });
+    updateBar();
+  })();
+
+  // ─── MOUSE SPARKLE TRAIL ──────────────────────
+  if (window.matchMedia('(pointer: fine)').matches) {
+    const SPARK_COLORS = ['#ff4d8d','#b96eff','#38d9f5','#4eedb4','#ffb347','#fca5a5'];
+    let lastSparkTime = 0;
+    document.addEventListener('mousemove', e => {
+      const now = Date.now();
+      if (now - lastSparkTime < 40) return; // throttle — 1 spark per 40ms
+      lastSparkTime = now;
+      const s = document.createElement('div');
+      s.className = 'm-spark';
+      const size = 5 + Math.random() * 6;
+      s.style.cssText = [
+        'width:' + size + 'px',
+        'height:' + size + 'px',
+        'left:' + e.clientX + 'px',
+        'top:' + e.clientY + 'px',
+        'background:' + SPARK_COLORS[Math.floor(Math.random() * SPARK_COLORS.length)],
+        '--dx:' + ((Math.random() - 0.5) * 30) + 'px',
+        '--sd:' + (0.45 + Math.random() * 0.25) + 's',
+        'box-shadow:0 0 6px currentColor'
+      ].join(';');
+      document.body.appendChild(s);
+      s.addEventListener('animationend', () => s.remove(), { once: true });
+    }, { passive: true });
+  }
+
+  // ─── BUTTON CLICK RIPPLE ──────────────────────
+  document.querySelectorAll('.btn, .tab-btn, .nav-cta').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const r = btn.getBoundingClientRect();
+      const rip = document.createElement('span');
+      rip.className = 'btn-ripple';
+      rip.style.left = (e.clientX - r.left) + 'px';
+      rip.style.top  = (e.clientY - r.top)  + 'px';
+      btn.appendChild(rip);
+      rip.addEventListener('animationend', () => rip.remove(), { once: true });
+    });
+  });
+
+
 });

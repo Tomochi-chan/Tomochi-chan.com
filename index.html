@@ -9,7 +9,7 @@
   <meta property="og:description" content="Companions that bring kids back to the real world." />
   <meta property="og:url" content="https://tomochi-chan.com" />
   <link rel="canonical" href="https://tomochi-chan.com" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=2" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
@@ -17,6 +17,7 @@
 <body>
   <div id="cursor-blob" aria-hidden="true"></div>
   <div id="cursor-dot" aria-hidden="true"></div>
+  <div id="scroll-progress" aria-hidden="true"></div>
   <canvas id="sparkle-canvas" aria-hidden="true"></canvas>
 
   <!-- NAV -->
@@ -44,6 +45,11 @@
       <div class="orb orb-3"></div>
       <div class="jelly-blob jelly-1"></div>
       <div class="jelly-blob jelly-2"></div>
+      <span class="hero-deco" style="--dur:7s;--delay:0s;--x:8%;--y:18%">&#x1F31F;</span>
+      <span class="hero-deco" style="--dur:5.5s;--delay:1.2s;--x:82%;--y:22%">&#x2728;</span>
+      <span class="hero-deco" style="--dur:8s;--delay:0.4s;--x:6%;--y:70%">&#x1F9F8;</span>
+      <span class="hero-deco" style="--dur:6.5s;--delay:2s;--x:88%;--y:68%">&#x1F4AB;</span>
+      <span class="hero-deco" style="--dur:9s;--delay:3.5s;--x:50%;--y:88%">&#x1F308;</span>
     </div>
     <div class="hero-content">
       <h1 class="hero-headline reveal">
@@ -82,7 +88,7 @@
         <div class="problem-text reveal">
           <div class="section-tag">The Problem</div>
           <h2 class="section-headline">
-            Our kids are growing up<br /><em>inside a screen.</em>
+            Our kids are growing up<br /><em class="glitch-em">inside a screen.</em>
           </h2>
           <p class="problem-body">
             Scroll. Autoplay. Repeat. The feeds are designed to hold attention —
@@ -233,7 +239,9 @@
   <!-- THE WORLD -->
   <section class="world" id="world">
     <div class="container">
-      <div class="section-center reveal">
+      <div class="section-center reveal" style="position:relative;">
+        <span class="world-deco" style="--x:-60px;--y:10px;--dur:6s;font-size:2rem">&#x1F43E;</span>
+        <span class="world-deco" style="--x:60px;--y:5px;--dur:7s;--delay:1s;font-size:1.8rem">&#x1F320;</span>
         <div class="section-tag">The Tomochi World</div>
         <h2 class="section-headline">
           Creatures that live in<br /><em>magical jelly worlds.</em>
@@ -680,11 +688,11 @@
       </div>
       <div class="market-stats">
         <div class="market-stat reveal">
-          <span class="market-num">$25B</span>
+          <span class="market-num" data-target="25" data-suffix="B" data-prefix="$">$25B</span>
           <span class="market-label">Global interactive toy market</span>
         </div>
         <div class="market-stat reveal">
-          <span class="market-num">72M</span>
+          <span class="market-num" data-target="72" data-suffix="M" data-prefix="">72M</span>
           <span class="market-label">US households with children under 12</span>
         </div>
         <div class="market-stat reveal">
@@ -710,6 +718,13 @@
     <div class="cta-bg">
       <div class="orb orb-7"></div>
       <div class="orb orb-8"></div>
+      <div class="jelly-blob" style="width:500px;height:400px;background:radial-gradient(ellipse,rgba(255,77,141,0.22),transparent 70%);top:-80px;left:-100px;animation-delay:0s;filter:blur(80px);position:absolute;pointer-events:none;animation:jellyPulse 10s ease-in-out infinite;"></div>
+      <div class="jelly-blob" style="width:350px;height:450px;background:radial-gradient(ellipse,rgba(56,217,245,0.18),transparent 70%);bottom:-60px;right:-80px;animation-delay:4s;filter:blur(80px);position:absolute;pointer-events:none;animation:jellyPulse 12s ease-in-out infinite 4s;"></div>
+      <span class="cta-deco" style="--x:8%;--y:15%;--dur:7s;">&#x1F9F8;</span>
+      <span class="cta-deco" style="--x:88%;--y:20%;--dur:5.5s;--delay:1s;">&#x2728;</span>
+      <span class="cta-deco" style="--x:12%;--y:75%;--dur:8s;--delay:2s;">&#x1F308;</span>
+      <span class="cta-deco" style="--x:85%;--y:70%;--dur:6s;--delay:3s;">&#x1F4AB;</span>
+      <span class="cta-deco" style="--x:50%;--y:5%;--dur:9s;--delay:1.5s;font-size:1.2rem;">&#x1F31F;</span>
     </div>
     <div class="container">
       <div class="cta-inner reveal">
@@ -772,6 +787,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>

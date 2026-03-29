@@ -43,38 +43,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealEls.forEach(el => revealObserver.observe(el));
 
-  // ─── CATEGORY NAV ACTIVE ON SCROLL ───────────────
-  const catNavLinks = document.querySelectorAll('.cat-nav-link');
-  const catSections = document.querySelectorAll('.pcat[id]');
-
-  const catObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        catNavLinks.forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-        });
-      }
-    });
-  }, { threshold: 0.3 });
-
-  catSections.forEach(sec => catObserver.observe(sec));
-
-  // Smooth scroll for cat nav links (offset for sticky nav + cat nav)
-  catNavLinks.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const id = link.getAttribute('href').slice(1);
-      const target = document.getElementById(id);
-      if (!target) return;
-      const offset = nav.offsetHeight + 60;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
+  // ─── TAB SWITCHING ────────────────────────────────
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.product-grid').forEach(g => { g.style.display = 'none'; });
+      btn.classList.add('active');
+      const grid = document.getElementById('tab-' + btn.dataset.tab);
+      if (grid) grid.style.display = 'grid';
     });
   });
 
   // ─── SMOOTH ANCHOR SCROLL ─────────────────────────
-  document.querySelectorAll('a[href^="#"]:not(.cat-nav-link)').forEach(anchor => {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', e => {
       const id = anchor.getAttribute('href').slice(1);
       if (!id) return;

@@ -1151,3 +1151,247 @@ ul { list-style: none; }
   .container { padding: 0 16px; }
   .market-stats { grid-template-columns: 1fr; }
 }
+
+
+/* =========================================
+   VISUAL OVERHAUL — KID-FRIENDLY JELLY WORLD
+   ========================================= */
+
+/* ── Palette upgrade ─────────────────────── */
+:root {
+  --pink:     #ff4d8d;
+  --lavender: #b96eff;
+  --sky:      #38d9f5;
+  --mint:     #4eedb4;
+  --cream:    #fff4fd;
+  --grad-hero:   linear-gradient(135deg, #fff0f9 0%, #efe5ff 45%, #e4f8ff 100%);
+  --grad-candy:  linear-gradient(135deg, #fff0fc 0%, #f0e5ff 50%, #e4f8ff 100%);
+  --grad-glow:   linear-gradient(135deg, #ff4d8d, #b96eff, #38d9f5);
+  --shadow-glow: 0 0 60px rgba(255,77,141,0.35), 0 0 120px rgba(185,110,255,0.2);
+}
+
+/* ── Hide default cursor (desktop only) ──── */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+}
+
+/* ── Jelly cursor ────────────────────────── */
+#cursor-blob {
+  position: fixed;
+  width: 44px; height: 44px;
+  background: rgba(255, 77, 141, 0.15);
+  border: 2px solid rgba(255, 77, 141, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  top: 0; left: 0;
+  will-change: transform;
+  transition:
+    width 0.35s var(--ease-bounce),
+    height 0.35s var(--ease-bounce),
+    background 0.3s,
+    border-color 0.3s,
+    border-radius 0.5s;
+  animation: blobMorphCursor 4s ease-in-out infinite;
+}
+#cursor-dot {
+  position: fixed;
+  width: 7px; height: 7px;
+  background: var(--pink);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  top: 0; left: 0;
+  margin: -3.5px 0 0 -3.5px;
+  will-change: transform;
+}
+#cursor-blob.hovered {
+  width: 64px; height: 64px;
+  background: rgba(185, 110, 255, 0.18);
+  border-color: var(--lavender);
+  border-radius: 42% 58% 55% 45% / 45% 52% 48% 55%;
+}
+#cursor-blob.clicked {
+  width: 28px; height: 28px;
+  background: rgba(255, 77, 141, 0.45);
+  border-radius: 50% !important;
+  animation: none;
+}
+@keyframes blobMorphCursor {
+  0%,100% { border-radius: 50%; }
+  25%  { border-radius: 62% 38% 68% 32% / 42% 58% 42% 58%; }
+  50%  { border-radius: 33% 67% 40% 60% / 60% 40% 60% 40%; }
+  75%  { border-radius: 68% 32% 58% 42% / 35% 65% 35% 65%; }
+}
+
+/* ── Sparkle canvas ──────────────────────── */
+#sparkle-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+/* ── Jelly blob ambient decorations ─────── */
+.jelly-blob {
+  position: absolute;
+  pointer-events: none;
+  filter: blur(72px);
+  animation: jellyPulse 9s ease-in-out infinite;
+}
+.jelly-1 {
+  width: 520px; height: 420px;
+  background: radial-gradient(ellipse, rgba(255,77,141,0.3) 0%, transparent 70%);
+  top: 10%; left: 5%;
+  animation-delay: 0s;
+}
+.jelly-2 {
+  width: 380px; height: 480px;
+  background: radial-gradient(ellipse, rgba(185,110,255,0.24) 0%, transparent 70%);
+  bottom: 5%; right: 8%;
+  animation-delay: 3s;
+}
+.jelly-3 {
+  width: 440px; height: 360px;
+  background: radial-gradient(ellipse, rgba(56,217,245,0.22) 0%, transparent 70%);
+  top: 25%; right: 15%;
+  animation-delay: 6s;
+}
+@keyframes jellyPulse {
+  0%,100% { transform: scale(1) rotate(0deg); border-radius: 50%; }
+  30%  { transform: scale(1.09, 0.93) rotate(5deg);  border-radius: 55% 45% 62% 38% / 45% 62% 38% 55%; }
+  60%  { transform: scale(0.93, 1.09) rotate(-4deg); border-radius: 40% 60% 45% 55% / 62% 38% 55% 45%; }
+}
+
+/* ── SVG wave dividers ───────────────────── */
+.wave-divider {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  pointer-events: none;
+  margin: 0; padding: 0;
+}
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 80px;
+}
+
+/* ── Section background textures ─────────── */
+.problem {
+  position: relative;
+  background-image: radial-gradient(rgba(255,77,141,0.04) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+}
+
+.products {
+  background-image: radial-gradient(rgba(185,110,255,0.05) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+}
+
+.solution {
+  background: linear-gradient(160deg, #120830 0%, #1e1040 45%, #2a1860 100%);
+}
+
+/* ── Pillar cards — jelly upgrade ────────── */
+.pillar {
+  border-radius: var(--radius-xl) !important;
+  transition: transform 0.4s var(--ease-bounce), box-shadow 0.4s var(--ease-out) !important;
+}
+.pillar:nth-child(odd)  { transform: rotate(-0.8deg); }
+.pillar:nth-child(even) { transform: rotate(0.8deg); }
+.pillar:hover { transform: translateY(-10px) rotate(0deg) !important; box-shadow: 0 16px 56px rgba(185,110,255,0.2) !important; }
+
+.pillar-icon {
+  font-size: 3.8rem !important;
+  width: 80px !important; height: 80px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: linear-gradient(135deg, rgba(255,77,141,0.12), rgba(185,110,255,0.14)) !important;
+  border-radius: 50% !important;
+  margin: 0 auto 18px !important;
+  box-shadow: 0 4px 20px rgba(185,110,255,0.15) !important;
+}
+
+/* ── Card wobble ─────────────────────────── */
+.product-card { transition: box-shadow 0.3s, border-color 0.3s !important; }
+.product-card:hover {
+  transform: none !important;  /* wobble handles movement */
+  box-shadow: 0 12px 48px rgba(255,77,141,0.22) !important;
+  border-color: rgba(185,110,255,0.35) !important;
+}
+@keyframes cardWobble {
+  0%   { transform: translateY(0)    rotate(0deg)    scale(1); }
+  18%  { transform: translateY(-11px) rotate(-1.8deg) scale(1.022); }
+  36%  { transform: translateY(-9px)  rotate(1.4deg)  scale(1.022); }
+  54%  { transform: translateY(-11px) rotate(-0.9deg) scale(1.022); }
+  72%  { transform: translateY(-10px) rotate(0.6deg)  scale(1.022); }
+  88%  { transform: translateY(-10px) rotate(-0.2deg) scale(1.022); }
+  100% { transform: translateY(-9px)  rotate(0deg)    scale(1.022); }
+}
+.product-card.wobble { animation: cardWobble 0.6s var(--ease-bounce) forwards; }
+
+/* ── Game-like tab buttons ───────────────── */
+.tab-btn {
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.12), 0 3px 10px rgba(185,110,255,0.12) !important;
+  transition: all 0.22s var(--ease-bounce) !important;
+}
+.tab-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.12), 0 6px 20px rgba(185,110,255,0.2) !important;
+}
+.tab-btn:active {
+  transform: scale(0.96) translateY(2px) !important;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1), 0 1px 4px rgba(185,110,255,0.1) !important;
+}
+.tab-btn.active {
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.18), 0 6px 24px rgba(255,77,141,0.38) !important;
+  transform: none !important;
+}
+.tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.32);
+  font-size: 10px;
+  font-weight: 700;
+  width: 19px; height: 19px;
+  border-radius: 100px;
+  margin-left: 5px;
+  vertical-align: middle;
+  color: inherit;
+}
+
+/* ── Day step connector upgrade ──────────── */
+.day-connector {
+  background: linear-gradient(to right,
+    rgba(255,77,141,0.35),
+    rgba(185,110,255,0.35)) !important;
+}
+
+/* ── Btn glow upgrade ────────────────────── */
+.btn-primary {
+  box-shadow: 0 4px 28px rgba(255,77,141,0.45) !important;
+}
+.btn-primary:hover {
+  box-shadow: 0 8px 44px rgba(255,77,141,0.55) !important;
+}
+
+/* ── Nav CTA upgrade ─────────────────────── */
+.nav-cta {
+  box-shadow: 0 4px 20px rgba(255,77,141,0.4) !important;
+}
+
+/* ── World card upgrade ──────────────────── */
+.world-card { border-radius: var(--radius-xl) !important; }
+
+/* ── Hero card upgrade ───────────────────── */
+.card-front { border-radius: var(--radius-xl) !important; }
+
+/* ── Responsive: hide cursor elements on touch ── */
+@media (pointer: coarse) {
+  #cursor-blob, #cursor-dot { display: none; }
+}

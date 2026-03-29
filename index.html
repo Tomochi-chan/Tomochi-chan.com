@@ -15,6 +15,9 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <div id="cursor-blob" aria-hidden="true"></div>
+  <div id="cursor-dot" aria-hidden="true"></div>
+  <canvas id="sparkle-canvas" aria-hidden="true"></canvas>
 
   <!-- NAV -->
   <nav class="nav" id="nav">
@@ -39,6 +42,8 @@
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
       <div class="orb orb-3"></div>
+      <div class="jelly-blob jelly-1"></div>
+      <div class="jelly-blob jelly-2"></div>
     </div>
     <div class="hero-content">
       <h1 class="hero-headline reveal">
@@ -101,11 +106,15 @@
     </div>
   </section>
 
+  <div class="wave-divider" aria-hidden="true" data-from="white" data-to="dark"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 C240,80 480,0 720,40 C960,80 1200,20 1440,60 L1440,80 L0,80 Z" fill="#1a1028"/></svg></div>
+
   <!-- SOLUTION -->
   <section class="solution" id="solution">
     <div class="solution-bg">
       <div class="orb orb-4"></div>
       <div class="orb orb-5"></div>
+      <div class="jelly-blob jelly-3"></div>
+      <div class="jelly-blob jelly-2"></div>
     </div>
     <div class="container">
       <div class="section-center reveal">
@@ -172,6 +181,8 @@
     </div>
   </section>
 
+  <div class="wave-divider" aria-hidden="true" data-from="dark" data-to="candy"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C360,0 720,80 1080,20 C1260,0 1380,50 1440,40 L1440,80 L0,80 Z" fill="#fff0fc"/></svg></div>
+
   <!-- A DAY WITH TOMOCHI -->
   <section class="day-section" id="day">
     <div class="container">
@@ -216,6 +227,8 @@
       </div>
     </div>
   </section>
+
+  <div class="wave-divider" aria-hidden="true" data-from="candy" data-to="white"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C200,80 500,0 800,50 C1100,90 1300,20 1440,45 L1440,80 L0,80 Z" fill="#ffffff"/></svg></div>
 
   <!-- THE WORLD -->
   <section class="world" id="world">
@@ -276,7 +289,7 @@
 
       <!-- Tab buttons -->
       <div class="tab-nav reveal">
-        <button class="tab-btn active" data-tab="companions">&#x1F9F8; Companions</button>
+        <button class="tab-btn active" data-tab="companions">&#x1F9F8; Companions <span class="tab-count">7</span></button>
         <button class="tab-btn" data-tab="device">&#x1F3E0; Hex Device</button>
         <button class="tab-btn" data-tab="collectibles">&#x2728; Collectibles</button>
         <button class="tab-btn" data-tab="lifestyle">&#x1F455; Lifestyle</button>
